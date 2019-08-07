@@ -210,7 +210,8 @@ class TestInotifyTree(unittest.TestCase):
                 (inotify.adapters._INOTIFY_EVENT(wd=1, mask=1073742336, cookie=0, len=16), ['IN_ISDIR', 'IN_DELETE'], path, 'bb'),
             ]
 
-            self.assertEquals(events, expected)
+            # self.assertEquals(events, expected)
+            inotify.test_support.fuzzyAssertEventListEquals(self, events, expected)
 
     def test__renames(self):
 
